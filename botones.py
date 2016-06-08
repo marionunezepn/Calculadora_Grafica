@@ -1,31 +1,35 @@
-import tkinter
-from tkinter.constants import *
-tk = tkinter.Tk()
+from tkinter import *
+class calculadora:
+    def __init__(self,master):
+        self.frame=Frame(master)
+        self.frame.grid()
+        bts=["0","1","2","3","4","5","6","7","8","9","+","-","=","*","/","C"]
+        r=1
+        c=0
+        for bt in bts:
+            comando=lambda x=bt:self.calcular(x)
+            self.boton=Button(self.frame,text=bt,width=4,height=2,command=comando)
+            self.boton.grid(row=r,column=c)
+            c +=1
+            if c>3:
+                c=0
+                r +=1
+
+    def calcular(self,valor):
+        if valor=="=":
+            todo="123456789+-*/"
+            try:
+                resultado=eval(self.dados.get())
+            except:
+        elif valor=="C":
+        else:
+
+root=Tk()
+root.title("CALCULADORA")
+root.geometry('200x200+10+10')
+root.resizable(width=TRUE, height=TRUE)
+calculadora(root)
+root.mainloop()
 
 
-frame = tkinter.Frame(tk, relief=GROOVE, bd=2, height=500, width=300)
-frame.pack(fill=BOTH,expand=20)
-label = tkinter.Label(frame, text="CALCULADORA", fg='yellow', font='Arial', bg='BLUE')
-#label.pack(fill=X, expand=7)
-label.place(bordermode=OUTSIDE, height=30, width=200, x=50)
-button1 = tkinter.Button(frame,text="1")
-button2 = tkinter.Button(frame,text="2")
-button3 = tkinter.Button(frame,text="3")
-button4 = tkinter.Button(frame,text="4")
-button5 = tkinter.Button(frame,text="5")
-button6 = tkinter.Button(frame,text="6")
-button7 = tkinter.Button(frame,text="7")
-button8 = tkinter.Button(frame,text="8")
-button9 = tkinter.Button(frame,text="9")
-button0 = tkinter.Button(frame,text="0")
-button1.place(bordermode=OUTSIDE, height=40, width=40, y=70)
-button2.place(bordermode=OUTSIDE, height=40, width=40, y=70, x=50)
-button3.place(bordermode=OUTSIDE, height=40, width=40, y=70, x=100)
-button4.place(bordermode=OUTSIDE, height=40, width=40, y=120)
-button5.place(bordermode=OUTSIDE, height=40, width=40, y=120, x=50)
-button6.place(bordermode=OUTSIDE, height=40, width=40, y=120, x=100)
-button7.place(bordermode=OUTSIDE, height=40, width=40, y=170)
-button8.place(bordermode=OUTSIDE, height=40, width=40, y=170, x=50)
-button9.place(bordermode=OUTSIDE, height=40, width=40, y=170, x=100)
-button0.place(bordermode=OUTSIDE, height=40, width=40, y=220, x=50)
-tk.mainloop()
+
